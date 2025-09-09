@@ -39,4 +39,4 @@ python play_ppo.py
 ## Resultados
 O agente foi treinado por aproximadamente 2.7 milhões de timesteps. O gráfico abaixo, gerado pelo TensorBoard, mostra a evolução da performance média do agente ao longo do tempo.
 
-![alt text](image-1.png)
+![alt text](image.png)
