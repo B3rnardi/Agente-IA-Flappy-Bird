@@ -39,6 +39,7 @@ python play_ppo.py
 ## Resultados
 O agente foi treinado por aproximadamente [Número de] milhões de timesteps. O gráfico abaixo, gerado pelo TensorBoard, mostra a evolução da performance média do agente ao longo do tempo.
 
-*(DICA: Tire um print do seu melhor gráfico do TensorBoard e adicione a imagem aqui!)*
+<img width="401" height="417" alt="image" src="https://github.com/user-attachments/assets/3f6ec83b-f21e-440a-b403-5cab76857054" />
 
-O modelo final alcançou uma performance estável, com um recorde de pontuação de [Seu Recorde].
+
+O modelo final alcançou uma performance estável, com um recorde de pontuação de 150.
