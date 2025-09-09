@@ -9,7 +9,6 @@ from stable_baselines3 import PPO
 from flappy_env import FlappyBirdEnv
 
 
-# --- NOVA FUNÇÃO PARA O DECAIMENTO DO LEARNING RATE ---
 def linear_schedule(initial_value: float) -> Callable[[float], float]:
     """
     Cria uma função que retorna a taxa de aprendizado diminuindo linearmente.
@@ -21,7 +20,6 @@ def linear_schedule(initial_value: float) -> Callable[[float], float]:
         """
         return progress_remaining * initial_value
     return func
-# --- FIM DA NOVA FUNÇÃO ---
 
 
 # --- Configuração ---
@@ -36,7 +34,7 @@ os.makedirs(LOG_DIR, exist_ok=True)
 env = FlappyBirdEnv()
 env.reset()
 
-# Lógica para carregar o último modelo salvo (continua a mesma)
+# Lógica para carregar o último modelo salvo
 saved_models = [f for f in os.listdir(MODELS_DIR) if f.endswith('.zip')]
 if saved_models:
     latest_model_name = max(saved_models, key=lambda x: int(x.split('.')[0]))
@@ -46,8 +44,6 @@ if saved_models:
     start_iteration = int(latest_model_name.split('.')[0]) // TIMESTEPS_PER_SAVE
 else:
     print("Nenhum modelo encontrado, começando um novo treinamento.")
-    # --- MUDANÇA AQUI: Aplicando o decaimento do learning rate ---
-    # A taxa de aprendizado padrão do PPO é 0.0003
     lr_schedule = linear_schedule(0.0003)
     model = PPO("MlpPolicy", env, verbose=1, tensorboard_log=LOG_DIR, learning_rate=lr_schedule)
     start_iteration = 0

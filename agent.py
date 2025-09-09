@@ -13,12 +13,10 @@ LR = 0.0005 # Learning Rate (Taxa de aprendizado)
 class Agent:
     def __init__(self):
         self.n_games = 0
-        # --- NOVA LÓGICA DE EPSILON ---
         self.epsilon_start = 1.0  # Começa 100% aleatório
         self.epsilon_end = 0.01   # Mínimo de 1% de aleatoriedade
         self.epsilon_decay = 0.9999 # Fator de decaimento a cada jogo
         self.epsilon = self.epsilon_start
-        # --- FIM DA NOVA LÓGICA ---
         
         self.gamma = 0.99 # Vamos ajustar isso depois
         self.memory = deque(maxlen=MAX_MEMORY)
@@ -30,7 +28,6 @@ class Agent:
         """Decide uma ação: aleatória (exploração) ou a melhor (explotação)."""
         final_move = [0, 0] # [não pular, pular]
         
-        # --- NOVA LÓGICA DE EPSILON ---
         if random.random() < self.epsilon:
             # Ação aleatória
             move = random.randint(0, 1)
@@ -44,9 +41,6 @@ class Agent:
 
     def get_state(self, game):
         """Pega o estado atual do jogo e o converte em 5 números."""
-        # TODO: Esta função precisará ser implementada junto com a lógica do jogo.
-        # Por enquanto, vamos retornar um placeholder.
-        # Ex: [bird.y, bird.velocity, dist_to_pipe, dist_to_top, dist_to_bottom]
         pass
 
     def remember(self, state, action, reward, next_state, done):
