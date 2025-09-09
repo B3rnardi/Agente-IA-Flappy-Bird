@@ -21,7 +21,6 @@ git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.co
 cd SEU_REPOSITORIO
 pip install -r requirements.txt 
 ```
-*(Você precisará criar um arquivo `requirements.txt` com as bibliotecas)*
 
 ### 2. Treinamento
 Para treinar um novo modelo do zero, execute:
@@ -40,3 +39,5 @@ python play_ppo.py
 O agente foi treinado por aproximadamente 2.7 milhões de timesteps. O gráfico abaixo, gerado pelo TensorBoard, mostra a evolução da performance média do agente ao longo do tempo.
 
 ![alt text](image.png)
+
+O recorde de pontuação que o agente conseguiu chegar em apenas 3 tentativas, foi 148.
